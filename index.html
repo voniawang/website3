@@ -402,7 +402,7 @@
                                     position: 'absolute',
                                     left: 0,
                                     right: 0,
-                                    top: isMobile ? '18.5%' : 'calc(18.5% - 20px)',
+                                    top: isMobile ? 'calc(18.5% - 10px)' : 'calc(18.5% - 20px)',
                                     zIndex: 2
                                 }}>
                                     <div style={{ display: 'flex', width: '100%' }}>
@@ -452,15 +452,15 @@
             return (
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+                        gridTemplateColumns: isMobile ? 'repeat(3, minmax(0, 1fr))' : 'repeat(3, 1fr)',
                         gap: '5px',
                         background: '#3552F6',
-                        padding: isMobile ? '24px' : '4rem'
+                        padding: isMobile ? '10px 10px 14px' : '4rem'
                     }}>
                     {/* Card 1: 猜单场 */}
                     <div style={{
-                        background: '#050505', padding: '2rem',
-                        minHeight: 200, display: 'flex', flexDirection: 'column',
+                        background: '#050505', padding: isMobile ? '1rem 0.75rem' : '2rem',
+                        minHeight: isMobile ? 146 : 200, display: 'flex', flexDirection: 'column',
                         justifyContent: 'space-between',
                         position: 'relative',
                         overflow: 'hidden'
@@ -473,29 +473,29 @@
                                 position: 'absolute',
                                 top: 0,
                                 right: 0,
-                                width: isMobile ? 118 : 178,
+                                width: isMobile ? 72 : 178,
                                 height: 'auto',
                                 pointerEvents: 'none',
                                 zIndex: 0
                             }}
                         />
                         <div style={{ position: 'relative', zIndex: 1 }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
-                                <div style={{ fontWeight: 900, fontSize: '1.5rem', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-0.03em' }}>猜单场</div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: isMobile ? '0.75rem' : '2rem' }}>
+                                <div style={{ fontWeight: 900, fontSize: isMobile ? '1rem' : '1.5rem', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-0.03em' }}>猜单场</div>
                             </div>
-                            <div className="font-mono" style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem' }}>
+                            <div className="font-mono" style={{ fontSize: isMobile ? '0.5rem' : '0.65rem', color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem' }}>
                                 AI预测优势: {MATCHES[0]?.teamA.name} · {MATCHES.filter(m => !m.isBettingClosed).length} 场可预测
                             </div>
                             <div>
-                                <div style={{ fontSize: '1.2rem', fontWeight: 700 }}>
+                                <div style={{ fontSize: isMobile ? '0.82rem' : '1.2rem', fontWeight: 700, lineHeight: 1.25 }}>
                                     逐场预测胜负与比分
                                 </div>
                             </div>
                         </div>
                         <div className="btn-skew" style={{
                             background: '#ffffff', color: '#050505', border: 'none',
-                            padding: '1rem 2rem', fontWeight: 900, textTransform: 'uppercase',
-                            letterSpacing: '0.1em', fontSize: '0.8rem', marginTop: '2rem',
+                            padding: isMobile ? '0.72rem 0.45rem' : '1rem 2rem', fontWeight: 900, textTransform: 'uppercase',
+                            letterSpacing: '0.1em', fontSize: isMobile ? '0.62rem' : '0.8rem', marginTop: isMobile ? '1rem' : '2rem',
                             display: 'inline-block', cursor: 'pointer', textAlign: 'center',
                             position: 'relative', zIndex: 1
                         }}>开始预测</div>
@@ -503,8 +503,8 @@
 
                     {/* Card 2: 32强预测 */}
                     <div style={{
-                        background: '#050505', padding: '2rem',
-                        minHeight: 200, display: 'flex', flexDirection: 'column',
+                        background: '#050505', padding: isMobile ? '1rem 0.75rem' : '2rem',
+                        minHeight: isMobile ? 146 : 200, display: 'flex', flexDirection: 'column',
                         justifyContent: 'space-between',
                         position: 'relative',
                         overflow: 'hidden'
@@ -517,29 +517,29 @@
                                 position: 'absolute',
                                 top: 0,
                                 right: 0,
-                                width: isMobile ? 118 : 178,
+                                width: isMobile ? 72 : 178,
                                 height: 'auto',
                                 pointerEvents: 'none',
                                 zIndex: 0
                             }}
                         />
                         <div style={{ position: 'relative', zIndex: 1 }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
-                                <div style={{ fontWeight: 900, fontSize: '1.5rem', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-0.03em' }}>32强预测</div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: isMobile ? '0.75rem' : '2rem' }}>
+                                <div style={{ fontWeight: 900, fontSize: isMobile ? '1rem' : '1.5rem', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-0.03em' }}>32强预测</div>
                             </div>
                             <div>
-                                <div className="font-mono" style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem' }}>
+                                <div className="font-mono" style={{ fontSize: isMobile ? '0.5rem' : '0.7rem', color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem' }}>
                                     {GROUPS.length} 组 · 48 支参赛队
                                 </div>
-                                <div style={{ fontSize: '1.2rem', fontWeight: 700 }}>
+                                <div style={{ fontSize: isMobile ? '0.82rem' : '1.2rem', fontWeight: 700, lineHeight: 1.25 }}>
                                     共选 32 支晋级队伍
                                 </div>
                             </div>
                         </div>
                         <div className="btn-skew" style={{
                             background: '#ffffff', color: '#050505', border: 'none',
-                            padding: '1rem 2rem', fontWeight: 900, textTransform: 'uppercase',
-                            letterSpacing: '0.1em', fontSize: '0.8rem', marginTop: '2rem',
+                            padding: isMobile ? '0.72rem 0.45rem' : '1rem 2rem', fontWeight: 900, textTransform: 'uppercase',
+                            letterSpacing: '0.1em', fontSize: isMobile ? '0.62rem' : '0.8rem', marginTop: isMobile ? '1rem' : '2rem',
                             display: 'inline-block', cursor: 'pointer', textAlign: 'center',
                             position: 'relative', zIndex: 1
                         }}>选择阵容</div>
@@ -547,8 +547,8 @@
 
                     {/* Card 3: 冠军之路 — white inverted */}
                     <div style={{
-                        background: '#ffffff', color: '#050505', padding: '2rem',
-                        minHeight: 200, display: 'flex', flexDirection: 'column',
+                        background: '#ffffff', color: '#050505', padding: isMobile ? '1rem 0.75rem' : '2rem',
+                        minHeight: isMobile ? 146 : 200, display: 'flex', flexDirection: 'column',
                         justifyContent: 'space-between',
                         position: 'relative',
                         overflow: 'hidden'
@@ -561,29 +561,29 @@
                                 position: 'absolute',
                                 top: 0,
                                 right: 0,
-                                width: isMobile ? 118 : 178,
+                                width: isMobile ? 72 : 178,
                                 height: 'auto',
                                 pointerEvents: 'none',
                                 zIndex: 0
                             }}
                         />
                         <div style={{ position: 'relative', zIndex: 3 }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
-                                <div style={{ fontWeight: 900, fontSize: '1.5rem', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-0.03em', color: '#050505' }}>冠军之路</div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: isMobile ? '0.75rem' : '2rem' }}>
+                                <div style={{ fontWeight: 900, fontSize: isMobile ? '1rem' : '1.5rem', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-0.03em', color: '#050505' }}>冠军之路</div>
                             </div>
                             <div>
-                                <div className="font-mono" style={{ fontSize: '0.65rem', color: 'rgba(0,0,0,0.4)', marginTop: '0.5rem', letterSpacing: '0.1em' }}>
+                                <div className="font-mono" style={{ fontSize: isMobile ? '0.5rem' : '0.65rem', color: 'rgba(0,0,0,0.4)', marginTop: '0.5rem', letterSpacing: '0.1em', lineHeight: 1.25 }}>
                                     16强 → 8强 → 4强 → 决赛 → 冠军
                                 </div>
-                                <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'rgba(5,5,5,0.8)', marginTop: '0.5rem' }}>
+                                <div style={{ fontSize: isMobile ? '0.82rem' : '1.2rem', fontWeight: 700, color: 'rgba(5,5,5,0.8)', marginTop: '0.5rem', lineHeight: 1.25 }}>
                                     预测完整淘汰赛路线
                                 </div>
                             </div>
                         </div>
                         <div className="btn-skew" style={{
                             background: '#050505', color: '#ffffff', border: 'none',
-                            padding: '1rem 2rem', fontWeight: 900, textTransform: 'uppercase',
-                            letterSpacing: '0.1em', fontSize: '0.8rem', marginTop: '2rem',
+                            padding: isMobile ? '0.72rem 0.45rem' : '1rem 2rem', fontWeight: 900, textTransform: 'uppercase',
+                            letterSpacing: '0.1em', fontSize: isMobile ? '0.62rem' : '0.8rem', marginTop: isMobile ? '1rem' : '2rem',
                             display: 'inline-block', cursor: 'pointer', textAlign: 'center',
                             position: 'relative', zIndex: 3
                         }}>开始推演</div>
@@ -595,7 +595,7 @@
         // ==========================================
         // RIGHT PANEL (400px)
         // ==========================================
-        const RightPanel = () => {
+        const RightPanel = ({ isMobile = false }) => {
             const mergedRankings = useMemo(() => {
                 const aiEntries = AI_MODELS.map(m => ({ ...m, type: 'ai' }));
                 const humanEntries = HUMAN_LEADERBOARD.map(h => ({ ...h, type: 'human' }));
@@ -609,21 +609,22 @@
 
             return (
                 <div className="right-panel" style={{
-                    width: 400, minWidth: 400,
+                    width: isMobile ? '100%' : 400, minWidth: isMobile ? 0 : 400,
                     background: 'rgba(5,5,5,0.95)',
-                    borderLeft: '1px solid rgba(255,255,255,0.06)',
+                    borderLeft: isMobile ? 'none' : '1px solid rgba(255,255,255,0.06)',
+                    borderTop: isMobile ? '1px solid rgba(255,255,255,0.06)' : 'none',
                     display: 'flex', flexDirection: 'column',
                     overflow: 'hidden'
                 }}>
                     {/* Section 1: Rankings */}
-                    <div style={{ flex: '0 0 auto', maxHeight: '45%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                        <div style={{ padding: '20px 20px 12px' }}>
+                    <div style={{ flex: '0 0 auto', maxHeight: isMobile ? 'none' : '45%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                        <div style={{ padding: isMobile ? '18px 16px 12px' : '20px 20px 12px' }}>
                             <div className="section-title">战力排行榜</div>
                         </div>
                         {/* Table header */}
                         <div style={{
                             display: 'grid', gridTemplateColumns: '36px 1fr 50px 50px',
-                            padding: '6px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)',
+                            padding: isMobile ? '6px 16px' : '6px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)',
                             background: 'rgba(255,255,255,0.02)'
                         }}>
                             <span className="font-mono" style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.3)' }}>排名</span>
@@ -632,11 +633,11 @@
                             <span className="font-mono" style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.3)' }}>胜率</span>
                         </div>
                         {/* Table rows */}
-                        <div style={{ flex: 1, overflowY: 'auto' }}>
+                        <div style={{ flex: 1, overflowY: isMobile ? 'visible' : 'auto' }}>
                             {mergedRankings.slice(0, 8).map((entry, idx) => (
                                 <div key={`${entry.type}-${entry.id}`} className="match-row" style={{
                                     display: 'grid', gridTemplateColumns: '36px 1fr 50px 50px',
-                                    padding: '8px 20px', alignItems: 'center',
+                                    padding: isMobile ? '8px 16px' : '8px 20px', alignItems: 'center',
                                     borderBottom: '1px solid rgba(255,255,255,0.04)'
                                 }}>
                                     <span className="font-mono" style={{
@@ -662,17 +663,17 @@
 
                     {/* Section 2: Schedule */}
                     <div style={{ flex: '0 0 auto', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                        <div style={{ padding: '16px 20px 12px' }}>
+                        <div style={{ padding: isMobile ? '16px 16px 12px' : '16px 20px 12px' }}>
                             <div className="section-title">赛程速览</div>
                         </div>
-                        <div style={{ overflowY: 'auto' }}>
+                        <div style={{ overflowY: isMobile ? 'visible' : 'auto' }}>
                             {sortedMatches.map(m => {
                                 const isLive = m.status === '进行中';
                                 const isFinished = m.status === '已结束';
                                 const score = isLive ? m.currentScore : isFinished ? m.actualScore : '— : —';
                                 return (
                                     <div key={m.id} className="match-row" style={{
-                                        padding: '10px 20px',
+                                        padding: isMobile ? '10px 16px' : '10px 20px',
                                         borderBottom: '1px solid rgba(255,255,255,0.04)',
                                         display: 'flex', alignItems: 'center', gap: 12
                                     }}>
@@ -700,7 +701,7 @@
                     </div>
 
                     {/* Section 3: 奖项设置 */}
-                    <div style={{ padding: '16px 20px', flexShrink: 0 }}>
+                    <div style={{ padding: isMobile ? '16px' : '16px 20px', flexShrink: 0 }}>
                         <div className="section-title">奖项设置</div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                             {[
@@ -784,6 +785,7 @@
             return (
                 <div style={{
                     display: 'flex',
+                    flexDirection: isMobile ? 'column' : 'row',
                     height: isMobile ? 'auto' : '100vh',
                     minHeight: '100vh',
                     overflow: isMobile ? 'visible' : 'hidden'
@@ -814,8 +816,8 @@
                         </div>
                     </div>
 
-                    {/* Right Panel — desktop only */}
-                    {!isMobile && <RightPanel />}
+                    {/* Right Panel */}
+                    {isMobile ? <RightPanel isMobile={true} /> : <RightPanel />}
 
                     {/* Fixed footer — desktop only */}
                     {!isMobile && <FixedFooter />}
