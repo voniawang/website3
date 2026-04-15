@@ -285,15 +285,6 @@
                     display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
                     padding: isMobile ? '22px 18px 20px' : 'clamp(28px, 4vw, 48px) 64px 28px'
                 }}>
-                    {/* Mobile fallback background */}
-                    <div style={{
-                        position: 'absolute',
-                        inset: 0,
-                        zIndex: 0,
-                        backgroundImage: 'url(https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1600)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                    }}></div>
                     {/* Background video */}
                     <video
                         autoPlay
@@ -301,7 +292,6 @@
                         loop
                         playsInline
                         preload="auto"
-                        poster="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1600"
                         webkit-playsinline="true"
                         x5-playsinline="true"
                         x5-video-player-type="h5"
