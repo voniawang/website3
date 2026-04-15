@@ -278,7 +278,10 @@
 
             return (
                 <div style={{
-                    height: '100%', minHeight: 0, position: 'relative', overflow: 'hidden',
+                    height: '100%',
+                    minHeight: isMobile ? '58vh' : 0,
+                    position: 'relative',
+                    overflow: 'hidden',
                     display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
                     padding: isMobile ? '22px 18px 20px' : 'clamp(28px, 4vw, 48px) 64px 28px'
                 }}>
@@ -779,14 +782,30 @@
             }, []);
 
             return (
-                <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+                <div style={{
+                    display: 'flex',
+                    height: isMobile ? 'auto' : '100vh',
+                    minHeight: '100vh',
+                    overflow: isMobile ? 'visible' : 'hidden'
+                }}>
                     {/* Left Nav Rail — desktop only */}
                     {/* Nav rail removed */}
 
                     {/* Main Content */}
-                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', minWidth: 0, minHeight: 0 }}>
+                    <div style={{
+                        flex: 1,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        overflow: isMobile ? 'visible' : 'hidden',
+                        minWidth: 0,
+                        minHeight: 0
+                    }}>
                         {/* Hero — adaptive top area */}
-                        <div style={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
+                        <div style={{
+                            flex: isMobile ? '0 0 auto' : 1,
+                            minHeight: isMobile ? '58vh' : 0,
+                            overflow: 'hidden'
+                        }}>
                             <HeroSection isMobile={isMobile} />
                         </div>
                         {/* Dashboard grid — fixed at bottom */}
